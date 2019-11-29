@@ -22,5 +22,39 @@ E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(139,10): warning C4244: �
 E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(140,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
 E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(174,20): warning C4305: “=”: 从“double”到“float”截断
 E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(176,20): warning C4018: “<”: 有符号/无符号不匹配
+  Camera.cpp
 E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(210,57): warning C4305: “参数”: 从“double”到“const GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\header\Angel.h(63,47): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(698,18): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(699,18): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(700,18): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(721,24): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(723,24): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(726,30): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+  ObjLoader.cpp
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(742,30): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\Angel.h(63,47): warning C4305: “初始化”: 从“double”到“GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(698,18): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(699,18): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(700,18): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(721,24): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(723,24): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(726,30): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\header\mat.h(742,30): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(28,22): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(44,18): warning C4244: “初始化”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(54,19): warning C4244: “初始化”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(62,23): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(64,19): warning C4244: “初始化”: 从“double”转换到“GLfloat”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(82,24): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(99,18): warning C4244: “初始化”: 从“double”转换到“GLint”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(103,18): warning C4244: “=”: 从“double”转换到“GLint”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(108,18): warning C4244: “=”: 从“double”转换到“GLint”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(150,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(223,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(254,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(289,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(366,42): warning C4305: “参数”: 从“double”到“GLfloat”截断
+  正在生成代码...
+E:\VisualStudioProject\3DModelDemo_5\ObjLoader.cpp(372,46): warning C4305: “参数”: 从“double”到“GLfloat”截断
   3DModelDemo_5.vcxproj -> E:\VisualStudioProject\3DModelDemo_5\Debug\3DModelDemo_5.exe
