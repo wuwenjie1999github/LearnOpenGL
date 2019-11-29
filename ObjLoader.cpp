@@ -3,10 +3,11 @@
 #include "header/SOIL.h"
 #include <fstream>
 #include <sstream>
+#include <vector>
 #include <iostream>
 using namespace std;
 
-ObjLoader::ObjLoader(string filename, string texturename, GLuint p)
+ObjLoader::ObjLoader(string filename, vector<string> textureContainer, GLuint p)
 {
 	string line;
 	ifstream f;
@@ -136,7 +137,7 @@ ObjLoader::ObjLoader(string filename, string texturename, GLuint p)
 
 	f.close();
 
-	this->texturename = texturename;
+	textureVec.assign(textureContainer.begin(), textureContainer.end());
 	NumVertices = fSets.size() * 3;
 	points = new point4[NumVertices];
 	textures = new vec2[NumVertices];
@@ -146,7 +147,12 @@ ObjLoader::ObjLoader(string filename, string texturename, GLuint p)
 void ObjLoader::Draw(mat4 view)
 {
 	glBindVertexArray(vao);
-	glBindTexture(GL_TEXTURE_2D, texture);
+	for (int i = 0; i < textureVec.size(); i++)
+	{
+		glActiveTexture(GL_TEXTURE0 + i);
+		glBindTexture(GL_TEXTURE_2D, textureAddress[i]);
+
+	}
 	model = Translate(adjust_pos) * RotateX(Theta[Xaxis]) * RotateY(Theta[Yaxis]) * RotateZ(Theta[Zaxis]);
 	mat4  model_view = view * model;
 	GLuint ModelView = glGetUniformLocation(program, "ModelView");
@@ -154,6 +160,7 @@ void ObjLoader::Draw(mat4 view)
 	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindVertexArray(0);
+	
 }
 
 GLuint ObjLoader::SetProgram()
@@ -279,21 +286,33 @@ void ObjLoader::init()
 {
 	ColorObject();
 
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
+	for (int i = 0; i < textureVec.size(); i++)
+	{
+		GLuint texture;
+		string texturename = textureVec[i];
+		glGenTextures(1, &texture);
+		textureAddress.push_back(texture);
+		glBindTexture(GL_TEXTURE_2D, texture);
+		string param = "texture";
+		param.append(to_string(texture));
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// Set texture filtering
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		// Set texture filtering
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	int picture_width, picture_height;
-	unsigned char* image = SOIL_load_image(texturename.c_str(), &picture_width, &picture_height, 0, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, picture_width, picture_height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-	glGenerateMipmap(GL_TEXTURE_2D);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, 0);
+		int picture_width, picture_height;
+		unsigned char* image = SOIL_load_image(texturename.c_str(), &picture_width, &picture_height, 0, SOIL_LOAD_RGB);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, picture_width, picture_height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		glUseProgram(program);
+		glUniform1i(glGetUniformLocation(program, param.c_str()), 0);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
+	
 
 
 	glGenVertexArrays(1, &vao);
@@ -354,7 +373,7 @@ void ObjLoader::init()
 	float  material_shininess = 50.0;	// ·¢¹âÖµ
 
 
-	glUniform1i(glGetUniformLocation(program, "texture"), 0);
+	
 }
 
 void ObjLoader::display()

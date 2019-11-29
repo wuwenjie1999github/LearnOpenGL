@@ -9,6 +9,8 @@
 //#include <GLFW/glfw3.h>
 #include <ctime>
 #include <cmath>
+#include <vector>
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -62,7 +64,7 @@ display(void)
 	//  Generate tha model-view matrixn
 
 	mat4 view = LookAt(camera.camera_pos, camera.camera_pos + camera.camera_front, camera.camera_up);
-
+	//mat4 view = LookAt(camera.camera_pos, vec3(0,0,0), camera.camera_up);
 	for (int i = 0; i < objContainer.size(); i++)
 	{
 		point4 pointLightPositions[] = {
@@ -222,10 +224,16 @@ main(int argc, char** argv)
 	GLuint program = InitShader("vshader53.glsl", "fshader53.glsl");
 
 	Projection = glGetUniformLocation(program, "Projection");
-	ObjLoader objModel_1 = ObjLoader("apple.obj", "apple.png", program);
+
+	vector<string> vector1;
+	vector1.push_back("apple.png");
+	ObjLoader objModel_1 = ObjLoader("apple.obj", vector1, program);
 	objModel_1.move(-1, 0, 0);
 	objContainer.push_back(&objModel_1);
-	ObjLoader objModel_2 = ObjLoader("mushroom.obj", "mushroom.png", program);
+
+	vector<string> vector2;
+	vector2.push_back("mushroom.png");
+	ObjLoader objModel_2 = ObjLoader("mushroom.obj", vector2, program);
 	objModel_2.move(1, 0, 0);
 	objContainer.push_back(&objModel_2);
 

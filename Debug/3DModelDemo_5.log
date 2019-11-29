@@ -7,20 +7,20 @@ E:\VisualStudioProject\3DModelDemo_5\header\mat.h(721,24): warning C4244: “=�
 E:\VisualStudioProject\3DModelDemo_5\header\mat.h(723,24): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
 E:\VisualStudioProject\3DModelDemo_5\header\mat.h(726,30): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
 E:\VisualStudioProject\3DModelDemo_5\header\mat.h(742,30): warning C4244: “=”: 从“double”转换到“GLfloat”，可能丢失数据
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(29,13): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(30,13): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(44,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(52,31): warning C4305: “参数”: 从“double”到“GLclampf”截断
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(66,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(77,85): warning C4305: “参数”: 从“double”到“GLfloat”截断
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(82,90): warning C4305: “参数”: 从“double”到“GLfloat”截断
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(87,90): warning C4305: “参数”: 从“double”到“GLfloat”截断
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(92,90): warning C4305: “参数”: 从“double”到“GLfloat”截断
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(121,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(122,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(137,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(138,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(172,20): warning C4305: “=”: 从“double”到“float”截断
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(174,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(208,57): warning C4305: “参数”: 从“double”到“const GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(31,13): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(32,13): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(46,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(54,31): warning C4305: “参数”: 从“double”到“GLclampf”截断
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(68,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(79,85): warning C4305: “参数”: 从“double”到“GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(84,90): warning C4305: “参数”: 从“double”到“GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(89,90): warning C4305: “参数”: 从“double”到“GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(94,90): warning C4305: “参数”: 从“double”到“GLfloat”截断
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(123,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(124,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(139,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(140,10): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(174,20): warning C4305: “=”: 从“double”到“float”截断
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(176,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\VisualStudioProject\3DModelDemo_5\3DModelDemo_5.cpp(210,57): warning C4305: “参数”: 从“double”到“const GLfloat”截断
   3DModelDemo_5.vcxproj -> E:\VisualStudioProject\3DModelDemo_5\Debug\3DModelDemo_5.exe

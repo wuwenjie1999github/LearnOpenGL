@@ -22,7 +22,7 @@ in  vec3 _normal;
 in  mat4 _modelView;
 out vec4 fColor;
 
-uniform sampler2D texture;
+uniform sampler2D texture1;
 uniform PointLight pointLights[NR_POINT_LIGHTS];
 uniform Material material;
 
@@ -61,5 +61,5 @@ vec4 CalcPointLight(PointLight light) {
 	vec4 color = ambient + specular;
 	color.a = 1.0;
 
-    return (color + (diffuse + (1 - diffuse) * ambient) * texture2D(texture, texCoord));
+    return (color + (diffuse + (1 - diffuse) * ambient) * texture2D(texture1, texCoord));
 }

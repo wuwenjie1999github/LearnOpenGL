@@ -14,7 +14,7 @@ enum { Xaxis = 0, Yaxis = 1, Zaxis = 2, NumAxes = 3 };
 class ObjLoader {
 public:
 	ObjLoader(){}
-	ObjLoader(string filename, string texturename, GLuint p);
+	ObjLoader(string filename, vector<string> textureContainer, GLuint p);
 	void Draw(mat4 view);
 	GLuint SetProgram();
 	vector<vector<GLfloat>> getvSets();
@@ -50,10 +50,12 @@ private:
 	vec3 adjust_pos = vec3(0.0, 0.0, 0.0);
 
 	GLuint program;
-	string texturename;
+
 	int Index = 0;
 	GLuint vao;
-	GLuint texture;
+
+	vector<string> textureVec;
+	vector<GLint> textureAddress;
 
 	vector<string> Tri(vector<string>);	// 三角化
 	void CountNormal();	// 计算法向量
