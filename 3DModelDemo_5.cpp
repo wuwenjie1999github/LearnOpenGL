@@ -1,9 +1,9 @@
 ﻿// 3DModelDemo_5.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-#include "header/Angel.h"
-#include "header/SOIL.h"
-#include "header/Camera.h"
+#include "Header/Angel.h"
+#include "Header/SOIL.h"
+#include "Header/Camera.h"
 #include "ObjLoader.h"
 #include <winuser.h>
 //#include <GLFW/glfw3.h>
@@ -38,6 +38,7 @@ vec3 adjust_pos(0.0, 0.0, 0.0);
 GLfloat aspect;
 GLuint Projection;
 
+GLuint program;
 
 // OpenGL initialization
 void
@@ -65,39 +66,41 @@ display(void)
 
 	mat4 view = LookAt(camera.camera_pos, camera.camera_pos + camera.camera_front, camera.camera_up);
 	//mat4 view = LookAt(camera.camera_pos, vec3(0,0,0), camera.camera_up);
+
+	
+	point4 pointLightPositions[] = {
+			point4(0, 0, 4, 1),
+			point4(-4, 0, 0, 1),
+			point4(0, 4, 0, 1)
+	};
+	
+	for (int j = 0; j < 3; j++)
+		pointLightPositions[j] = view * pointLightPositions[j];
+
+	glUseProgram(program);
+	glUniform4f(glGetUniformLocation(program, "material.diffuse"), 1.0, 1.0, 1.0, 1.0);
+	glUniform4f(glGetUniformLocation(program, "material.specular"), 0.8, 0.8, 0.8, 1.0);
+	glUniform1f(glGetUniformLocation(program, "material.shininess"), 50.0);
+
+	// Point light 1
+	glUniform3f(glGetUniformLocation(program, "pointLights[0].position"), pointLightPositions[0].x, pointLightPositions[0].y, pointLightPositions[0].z);
+	glUniform4f(glGetUniformLocation(program, "pointLights[0].ambient"), 0.1, 0.1, 0.1, 1.0);
+	glUniform4f(glGetUniformLocation(program, "pointLights[0].diffuse"), 1, 0, 0, 1.0);
+	glUniform4f(glGetUniformLocation(program, "pointLights[0].specular"), 0.5, 0.5, 0.5, 1.0);
+	//Point light 2
+	glUniform3f(glGetUniformLocation(program, "pointLights[1].position"), pointLightPositions[1].x, pointLightPositions[1].y, pointLightPositions[1].z);
+	glUniform4f(glGetUniformLocation(program, "pointLights[1].ambient"), 0.1, 0.1, 0.1, 1.0);
+	glUniform4f(glGetUniformLocation(program, "pointLights[1].diffuse"), 0, 1, 0, 1.0);
+	glUniform4f(glGetUniformLocation(program, "pointLights[1].specular"), 0.5, 0.5, 0.5, 1.0);
+	// Point light 3
+	glUniform3f(glGetUniformLocation(program, "pointLights[2].position"), pointLightPositions[2].x, pointLightPositions[2].y, pointLightPositions[2].z);
+	glUniform4f(glGetUniformLocation(program, "pointLights[2].ambient"), 0.1, 0.1, 0.1, 1.0);
+	glUniform4f(glGetUniformLocation(program, "pointLights[2].diffuse"), 0, 0, 1, 1.0);
+	glUniform4f(glGetUniformLocation(program, "pointLights[2].specular"), 0.5, 0.5, 0.5, 1.0);
+	
 	for (int i = 0; i < objContainer.size(); i++)
 	{
-		point4 pointLightPositions[] = {
-			point4(0, 0, 2, 1),
-			point4(-2, 0, 0, 1),
-			point4(0, 2, 0, 1)
-		};
-		for (int i = 0; i < 3; i++)
-			pointLightPositions[i] = view * pointLightPositions[i];
-		GLuint program = objContainer[i]->SetProgram();
-		glUniform4f(glGetUniformLocation(program, "material.diffuse"), 1.0, 1.0, 1.0, 1.0);
-		glUniform4f(glGetUniformLocation(program, "material.specular"), 0.8, 0.8, 0.8, 1.0);
-		glUniform1f(glGetUniformLocation(program, "material.shininess"), 50.0);
-
-		// Point light 1
-		glUniform3f(glGetUniformLocation(program, "pointLights[0].position"), pointLightPositions[0].x, pointLightPositions[0].y, pointLightPositions[0].z);
-		glUniform4f(glGetUniformLocation(program, "pointLights[0].ambient"), 0.1, 0.1, 0.1, 1.0);
-		glUniform4f(glGetUniformLocation(program, "pointLights[0].diffuse"), 1, 0, 0, 1.0);
-		glUniform4f(glGetUniformLocation(program, "pointLights[0].specular"), 0.5, 0.5, 0.5, 1.0);
-		//Point light 2
-		glUniform3f(glGetUniformLocation(program, "pointLights[1].position"), pointLightPositions[1].x, pointLightPositions[1].y, pointLightPositions[1].z);
-		glUniform4f(glGetUniformLocation(program, "pointLights[1].ambient"), 0.1, 0.1, 0.1, 1.0);
-		glUniform4f(glGetUniformLocation(program, "pointLights[1].diffuse"), 0, 1, 0, 1.0);
-		glUniform4f(glGetUniformLocation(program, "pointLights[1].specular"), 0.5, 0.5, 0.5, 1.0);
-		// Point light 3
-		glUniform3f(glGetUniformLocation(program, "pointLights[2].position"), pointLightPositions[2].x, pointLightPositions[2].y, pointLightPositions[2].z);
-		glUniform4f(glGetUniformLocation(program, "pointLights[2].ambient"), 0.1, 0.1, 0.1, 1.0);
-		glUniform4f(glGetUniformLocation(program, "pointLights[2].diffuse"), 0, 0, 1, 1.0);
-		glUniform4f(glGetUniformLocation(program, "pointLights[2].specular"), 0.5, 0.5, 0.5, 1.0);
-
 		objContainer[i]->Draw(view);
-
-
 	}
 
 	glutSwapBuffers();
@@ -221,19 +224,19 @@ main(int argc, char** argv)
 
 	glewInit();
 
-	GLuint program = InitShader("vshader53.glsl", "fshader53.glsl");
+	program = InitShader("Shader/vshader53.glsl", "Shader/fshader53.glsl");
 
 	Projection = glGetUniformLocation(program, "Projection");
 
 	vector<string> vector1;
-	vector1.push_back("apple.png");
-	ObjLoader objModel_1 = ObjLoader("apple.obj", vector1, program);
+	vector1.push_back("Textures/white.png");
+	ObjLoader objModel_1 = ObjLoader("Model/1.obj", vector1, program);
 	objModel_1.move(-1, 0, 0);
 	objContainer.push_back(&objModel_1);
 
 	vector<string> vector2;
-	vector2.push_back("mushroom.png");
-	ObjLoader objModel_2 = ObjLoader("mushroom.obj", vector2, program);
+	vector2.push_back("Textures/white.png");
+	ObjLoader objModel_2 = ObjLoader("Model/1.obj", vector2, program);
 	objModel_2.move(1, 0, 0);
 	objContainer.push_back(&objModel_2);
 

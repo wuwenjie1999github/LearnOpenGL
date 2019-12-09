@@ -363,14 +363,14 @@ void ObjLoader::init()
 		BUFFER_OFFSET(offset));
 
 	// Initialize shader lighting parameters
-	color4 light_ambient(0.1, 0.1, 0.1, 1.0);	// 环境光反射系数
-	color4 light_diffuse(0.5, 0.5, 0.5, 1.0);	// 漫反射反射系数
-	color4 light_specular(0.5, 0.5, 0.5, 1.0);	// 镜面反射系数
+	//color4 light_ambient(0.1, 0.1, 0.1, 1.0);	// 环境光反射系数
+	//color4 light_diffuse(0.5, 0.5, 0.5, 1.0);	// 漫反射反射系数
+	//color4 light_specular(0.5, 0.5, 0.5, 1.0);	// 镜面反射系数
 
-	color4 material_ambient(0.5, 0.5, 0.5, 1.0);
-	color4 material_diffuse(1.0, 1.0, 1.0, 1.0);
-	color4 material_specular(0.8, 0.8, 0.8, 1.0);
-	float  material_shininess = 50.0;	// 发光值
+	//color4 material_ambient(0.5, 0.5, 0.5, 1.0);
+	//color4 material_diffuse(1.0, 1.0, 1.0, 1.0);
+	//color4 material_specular(0.8, 0.8, 0.8, 1.0);
+	//float  material_shininess = 50.0;	// 发光值
 
 
 	
